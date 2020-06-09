@@ -4,7 +4,8 @@
   "description": "An assigned app which creates a custom named burger using MySQL, Node, Express, Handlebars and a homemade ORM.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js localhost 8080",
+    "dev": "nodemon server.js localhost 8080"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
   }
 }
