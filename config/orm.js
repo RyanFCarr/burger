@@ -8,6 +8,7 @@ async function selectAll(){
         });
     });
 }
+
 async function insertOne(burger_name){
     return new Promise(resolve => {
         db.query("INSERT INTO burgers (burger_name) VALUES (?)", [burger_name], function(err, result) {
@@ -26,7 +27,6 @@ async function updateOne(id, burger_name){
         });
     });
 }
-
 
 module.exports = {
     selectAll,
