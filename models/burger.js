@@ -1,17 +1,17 @@
-const orm = require('orm');
+const orm = require('../config/orm');
 
-async function getAll(){
+async function selectAll(){
     return orm.selectAll();
 }
-async function addOne(){
-    return orm.insertOne();
+async function insertOne(burger){
+    return orm.insertOne(burger);
 }
-async function changeOne(){
-    return orm.updateOne();
+async function updateOne(id, burger){
+    return orm.updateOne(id, burger);
 }
 
 module.exports = {
-    getAll,
-    addOne,
-    changeOne
+    selectAll,
+    insertOne,
+    updateOne
 };
