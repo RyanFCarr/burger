@@ -16,6 +16,10 @@ router.put('/api/burgers/:id', async (req, res) => {
     res.send(await burger.updateOne(req.params.id, req.body.devoured))
 })
 
+router.delete('/api/burgers', async (req, res) => {
+    res.send(await burger.clearPlate());
+})
+
 router.get('/', async (req, res) => {
     const burgers = await burger.selectAll();
     res.render("index", { burgers })

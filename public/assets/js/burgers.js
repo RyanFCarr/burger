@@ -27,4 +27,17 @@ $(function() {
     })
     .then(() => location.reload());
   });
+
+  $("#clear-plate").on("click", function(event) {
+
+    // Truncate Table.
+    $.ajax("/api/burgers/", {
+      type: "DELETE"
+    })
+    .then(() => location.reload());
+  });
+
+
 });
+
+

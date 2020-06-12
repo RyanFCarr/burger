@@ -3,6 +3,9 @@ const orm = require('../config/orm');
 async function selectAll(){
     return orm.selectAll("burgers");
 }
+async function clearPlate(){
+    return orm.truncate("burgers");
+}
 async function insertOne(burger_name){
     return orm.insertOne("burgers", "burger_name", burger_name);
 }
@@ -14,5 +17,6 @@ async function updateOne(id, devoured){
 module.exports = {
     selectAll,
     insertOne,
-    updateOne
+    updateOne,
+    clearPlate
 };

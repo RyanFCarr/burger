@@ -9,6 +9,15 @@ async function selectAll(table){
     });
 }
 
+async function truncate(table){
+    return new Promise(resolve => {
+        db.query("TRUNCATE table ??", [table], (err, result)=>{
+            if (err) throw err;
+            resolve(result)
+        });
+    });
+}
+
 async function insertOne(table, column, value){
     return new Promise(resolve => {
         db.query("INSERT INTO ?? (??) VALUES (?)", [table, column, value], function(err, result) {
@@ -20,7 +29,6 @@ async function insertOne(table, column, value){
 
 async function updateOne(table, id, column, value){
     return new Promise(resolve => {
-
         db.query("UPDATE ?? SET ??=? WHERE id=?", [table, column, value, id], function(err, result) {
             if (err) throw err;
             resolve(result)
@@ -31,5 +39,6 @@ async function updateOne(table, id, column, value){
 module.exports = {
     selectAll,
     insertOne,
-    updateOne
+    updateOne,
+    truncate
 };
