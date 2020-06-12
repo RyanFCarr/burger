@@ -7,7 +7,7 @@ $(function() {
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: {
-        devoured: true
+        devoured: 1
       }
     })
     .then(() => location.reload());

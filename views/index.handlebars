@@ -14,47 +14,43 @@
 			<div class="form-group">
 				<label for="bn">Burger Name:</label>
 				<input type="text" id="bn" name="burger_name">
-				<button type="submit">Submit</button>
+				<button  class="btn-primary"type="submit">Submit</button>
+				<button class="btn-danger" type="submit">Clear Plate!</button>
 			</div>
 
 		</form>
 		<hr>
 	</div>
 
-
+	{{#if burgers}}
 	<div class="row">
 		<div class="col-5">
-			<div class="card not-devoured">
-				<div class="card-header font-weight-bold">Non-Devoured Burgers</div>
-				<ul class="list-group list-group-flush">
-					{{#each burgers}}
-						{{#unless devoured}}
-							<li class="list-group-item">{{burger_name}}</li>
-						{{/unless}}
-					{{/each}}
-				</ul>
-			</div>
-		</div>
-
-		<div class="col-2">
-			<div class="row justify-content-center mt-5 pt-3">
-				<button>Devour!</button>
-			</div>
-		</div>
+	
+				<div class="card not-devoured">
+					<div class="card-header font-weight-bold">Non-Devoured Burgers</div>
+					<div class=" card-body">
+						{{#each burgers}}
+							{{#unless devoured}}
+								<div class="row py-2 border-bottom">{{burger_name}}<button data-id="{{id}}" class="ml-auto change-devoured">Devour!</button></div>
+							{{/unless}}
+						{{/each}}
+					</div>		
+				</div>
 			
-
-		<div class="col-5">
+		</div>
+	
+		<div class="col-5 offset-2">
 			<div class="card devoured">
 				<div class="card-header font-weight-bold">Devoured Burgers</div>
-				<ul class="list-group list-group-flush">
+				<div class=" card-body col">
 					{{#each burgers}}
 						{{#if devoured}}
-							<li class="list-group-item">{{burger_name}}</li>
+							<div class="row py-2 border-bottom">{{burger_name}}</div>
 						{{/if}}
 					{{/each}}
-				</ul>
+				</div>		
 			</div>
 		</div>
 	</div>
-
+	{{/if}}
 </div>

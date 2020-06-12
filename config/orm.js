@@ -18,10 +18,10 @@ async function insertOne(table, column, value){
     });
 }
 
-async function updateOne(table, column, value){
+async function updateOne(table, id, column, value){
     return new Promise(resolve => {
 
-        db.query("UPDATE ?? SET ??=? WHERE id=?", [table, column, value], function(err, result) {
+        db.query("UPDATE ?? SET ??=? WHERE id=?", [table, column, value, id], function(err, result) {
             if (err) throw err;
             resolve(result)
         });

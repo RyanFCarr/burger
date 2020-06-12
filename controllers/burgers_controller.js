@@ -13,7 +13,7 @@ router.post('/api/burgers', async (req, res) => {
 })
 
 router.put('/api/burgers/:id', async (req, res) => {
-    res.send(await burger.updateOne(req.params.id, req.body.burger_name))
+    res.send(await burger.updateOne(req.params.id, req.body.devoured))
 })
 
 router.get('/', async (req, res) => {
