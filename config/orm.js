@@ -1,27 +1,27 @@
 const db = require('./connection');
 
-async function selectAll(){
+async function selectAll(table){
     return new Promise(resolve => {
-        db.query("SELECT * from burgers", (err, result)=>{
+        db.query("SELECT * from ??", [table], (err, result)=>{
             if (err) throw err;
             resolve(result)
         });
     });
 }
 
-async function insertOne(burger_name){
+async function insertOne(table, column, value){
     return new Promise(resolve => {
-        db.query("INSERT INTO burgers (burger_name) VALUES (?)", [burger_name], function(err, result) {
+        db.query("INSERT INTO ?? (??) VALUES (?)", [table, column, value], function(err, result) {
             if (err) throw err;
             resolve(result)
         });
     });
 }
 
-async function updateOne(id, burger_name){
+async function updateOne(table, column, value){
     return new Promise(resolve => {
 
-        db.query("UPDATE burgers SET burger_name=? WHERE id=?", [burger_name, id], function(err, result) {
+        db.query("UPDATE ?? SET ??=? WHERE id=?", [table, column, value], function(err, result) {
             if (err) throw err;
             resolve(result)
         });
@@ -33,5 +33,3 @@ module.exports = {
     insertOne,
     updateOne
 };
-
-
